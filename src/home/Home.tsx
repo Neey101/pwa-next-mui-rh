@@ -17,7 +17,7 @@ const Home = () => {
           <CardMedia
             sx={{ height: 140 }}
             image="https://e1.nmcdn.io/anicira/wp-content/uploads/2021/08/Emergency-cat.png"
-            title="green iguana"
+            title="gato pendejo"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
