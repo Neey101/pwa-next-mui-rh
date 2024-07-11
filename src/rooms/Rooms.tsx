@@ -7,9 +7,21 @@ import {
   CardActionArea,
   CardMedia,
   Typography,
+  BottomNavigation,
+  BottomNavigationAction,
 } from "@mui/material";
+import FolderIcon from "@mui/icons-material/Folder";
+import RestoreIcon from "@mui/icons-material/Restore";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { useState } from "react";
 
 const Rooms = () => {
+  const [value, setValue] = useState("recents");
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
   return (
     <>
       <Container maxWidth={false}>
@@ -44,6 +56,33 @@ const Rooms = () => {
             </CardActionArea>
           </Card>
         </Stack>
+        <BottomNavigation
+          // sx={{ width: 500 }}
+          value={value}
+          onChange={handleChange}
+          sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
+        >
+          <BottomNavigationAction
+            label="Recents"
+            value="recents"
+            icon={<RestoreIcon />}
+          />
+          <BottomNavigationAction
+            label="Favorites"
+            value="favorites"
+            icon={<FavoriteIcon />}
+          />
+          <BottomNavigationAction
+            label="Nearby"
+            value="nearby"
+            icon={<LocationOnIcon />}
+          />
+          <BottomNavigationAction
+            label="Folder"
+            value="folder"
+            icon={<FolderIcon />}
+          />
+        </BottomNavigation>
       </Container>
     </>
   );
